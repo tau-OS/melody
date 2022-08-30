@@ -18,7 +18,7 @@ def cli():
 @click.argument("filename", type=click.Path(exists=True))
 @click.argument("output", type=click.Path(exists=False))
 def compile(filename, output):
-    """Compile a melody program to a treefile"""
+    """Compile a melody program to an output directory"""
     node = load_program_tree(abspath(filename), None)
     base = get_dnf_base_from(node)
 
