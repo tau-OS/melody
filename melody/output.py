@@ -66,7 +66,6 @@ def compile_to_ouput_in_place(program: Node) -> list[(int, str)]:
             )
 
         if "check-passwd" in node.data:
-            print("owo")
             files_to_copy.append(
                 (
                     index,
@@ -78,26 +77,40 @@ def compile_to_ouput_in_place(program: Node) -> list[(int, str)]:
                     ),
                 )
             )
-            node.data["check-passwd"]["filename"] = str(index) + ".yaml"
+            node.data["check-passwd"]["filename"] = str(index)
             index += 1
 
-        if "check-group" in node.data:
+        if "check-groups" in node.data:
             files_to_copy.append(
                 (
                     index,
                     normpath(
                         join(
                             dirname(node.file_path),
-                            node.data["check-group"]["filename"],
+                            node.data["check-groups"]["filename"],
                         )
                     ),
                 )
             )
-            node.data["check-group"]["filename"] = str(index) + ".yaml"
+            node.data["check-groups"]["filename"] = str(index)
             index += 1
 
-        print(files_to_copy)
-        return files_to_copy
+        if "postprocess-script" in node.data:
+            files_to_copy.append(
+                (
+                    index,
+                    normpath(
+                        join(
+                            dirname(node.file_path),
+                            node.data["postprocess-script"],
+                        )
+                    ),
+                )
+            )
+            node.data["postprocess-script"] = str(index)
+            index += 1
+
+    return files_to_copy
 
 
 def write_output_to_directory(
@@ -114,4 +127,4 @@ def write_output_to_directory(
         shutil.copy(join(base_dir, repo), directory)
 
     for (index, filename) in files_to_copy:
-        shutil.copy(filename, join(directory, str(index) + ".yaml"))
+        shutil.copy(filename, join(directory, str(index)))
