@@ -19,10 +19,10 @@ BuildRequires:  pyproject-rpm-macros
 BuildRequires:  gcc
 BuildRequires:  git-core
 BuildRequires:  /usr/bin/python
-BuildRequires:  %py3_dist pytest
-BuildRequires:  %py3_dist pytest-mock
-BuildRequires:  %py3_dist httpretty
-BuildRequires:  %py3_dist virtualenv
+BuildRequires:  %py3_dist PyYAML
+BuildRequires:  %py3_dist anytree
+BuildRequires:  %py3_dist click
+BuildRequires:  %py3_dist rich
  
 Requires:       python3-dnf
  
