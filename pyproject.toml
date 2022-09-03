@@ -13,6 +13,9 @@ rich = "^12.5"
 PyYAML = "^6.0"
 anytree = "^2.8.0"
 
+[tool.poetry.scripts]
+melody = 'melody:initialise'
+
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
 
