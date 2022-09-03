@@ -15,6 +15,7 @@ BuildArch:      noarch
  
 BuildRequires:  python3-devel
 BuildRequires:  pyproject-rpm-macros
+BuildRequires:  python3-rich
 
 Requires:       python3-dnf
  
