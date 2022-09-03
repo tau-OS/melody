@@ -15,15 +15,7 @@ BuildArch:      noarch
  
 BuildRequires:  python3-devel
 BuildRequires:  pyproject-rpm-macros
- 
-BuildRequires:  gcc
-BuildRequires:  git-core
-BuildRequires:  /usr/bin/python
-BuildRequires:  %py3_dist PyYAML
-BuildRequires:  %py3_dist anytree
-BuildRequires:  %py3_dist click
-BuildRequires:  %py3_dist rich
- 
+
 Requires:       python3-dnf
  
 %description %{common_description}
