@@ -9,7 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 click = "^8.0.4"
-rich = "^12.5.1"
+rich = "^12.5"
 PyYAML = "^6.0"
 anytree = "^2.8.0"
 

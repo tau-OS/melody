@@ -145,7 +145,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "7a9a9cedf660c8fcd7f0577c632ee3971b5cf2a287b79c9d272c5b23f6014faa"
+content-hash = "5580e330bcf3342698458e8bf463bacc3e96b04a5f9aa21502134352d5aafd71"
 
 [metadata.files]
 anytree = [
