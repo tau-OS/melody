@@ -4,7 +4,7 @@ An advanced rpm-ostree compose system}
 Name:           melody
 Summary:        An advanced rpm-ostree compose system
 Version:        1
-Release:        2%{?dist}
+Release:        3%{?dist}
  
 License:        GPLv3+
  
@@ -17,6 +17,7 @@ BuildRequires:  python3-devel
 BuildRequires:  pyproject-rpm-macros
 
 Requires:       python3-dnf
+Requires:       python3-melody = %{version}-%{release
  
 %description %{common_description}
  
