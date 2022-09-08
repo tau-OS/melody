@@ -14,7 +14,13 @@ def compile_in_place(data: dict[str, any], base: dnf.Base):
 
         packages = list(
             itertools.chain.from_iterable(
-                map(lambda g: get_packages_for_group(g, base), groups)
+                map(
+                    lambda g: filter(
+                        lambda p: p in (g.get("blacklist", [])),
+                        get_packages_for_group(g["id"], base),
+                    ),
+                    groups,
+                )
             )
         )
 
