@@ -1,7 +1,7 @@
-from platform import machine
 from os.path import dirname
 import dnf
 from anytree import Node
+import hawkey
 
 from melody.program import query_releasever, query_required_repos
 
@@ -72,13 +72,14 @@ class ProgressMetre(dnf.callback.DownloadProgress):
 
 
 def get_dnf_base_from(program: Node) -> dnf.Base:
+    arch = hawkey.detect_arch()
     base = dnf.Base()
     conf = base.conf
 
     conf.reposdir = [dirname(program.file_path)]
-
+    conf.substitutions["arch"] = arch
+    conf.substitutions["basearch"] = dnf.rpm.basearch(arch)
     conf.substitutions["releasever"] = query_releasever(program)
-    conf.substitutions["basearch"] = machine()
 
     base.read_all_repos()
     base.repos.all().disable()
@@ -87,6 +88,7 @@ def get_dnf_base_from(program: Node) -> dnf.Base:
         repo_obj.enable()
         repo_obj.set_progress_bar(ProgressMetre())
 
+    base.update_cache()
     base.fill_sack(load_system_repo=False, load_available_repos=True)
     base.read_comps(arch_filter=True)
 
