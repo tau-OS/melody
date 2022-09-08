@@ -95,5 +95,14 @@ def get_dnf_base_from(program: Node) -> dnf.Base:
     return base
 
 
-def get_packages_for_group(group: str, base: dnf.Base) -> list:
-    return [p.name for p in base.comps.group_by_pattern(group).packages_iter()]
+def get_packages_for_group(
+    group: str, base: dnf.Base, default=True, optional=False
+) -> list:
+    packages = list(base.comps.group_by_pattern(group).packages_iter())
+    packages = filter(
+        lambda p: (p.option_type != dnf.comps.DEFAULT) or default, packages
+    )
+    packages = filter(
+        lambda p: (p.option_type != dnf.comps.OPTIONAL) or optional, packages
+    )
+    return [p.name for p in packages]

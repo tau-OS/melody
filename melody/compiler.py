@@ -17,7 +17,12 @@ def compile_in_place(data: dict[str, any], base: dnf.Base):
                 map(
                     lambda g: filter(
                         lambda p: p not in (g.get("blacklist", [])),
-                        get_packages_for_group(g["id"], base),
+                        get_packages_for_group(
+                            g["id"],
+                            base,
+                            default=g.get("default", True),
+                            optional=g.get("optional", False),
+                        ),
                     ),
                     groups,
                 )
