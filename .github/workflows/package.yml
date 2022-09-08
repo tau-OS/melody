@@ -24,7 +24,7 @@ jobs:
       - sign
     uses: tau-OS/github-actions/.github/workflows/upload-rpm.yml@main
     with:
-      name: "tau-melody"
+      name: "melody"
       tauOSVersion: "1.1"
     secrets:
       repoIP: ${{ secrets.REPO_IP }}
