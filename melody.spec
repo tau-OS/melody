@@ -4,7 +4,7 @@ An advanced rpm-ostree compose system}
 Name:           melody
 Summary:        An advanced rpm-ostree compose system
 Version:        1
-Release:        7%{?dist}
+Release:        8%{?dist}
 
 License:        GPLv3+
 

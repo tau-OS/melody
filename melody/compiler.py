@@ -21,7 +21,7 @@ def compile_in_place(data: dict[str, any], base: dnf.Base):
                             g["id"],
                             base,
                             default=g.get("default", True),
-                            optional=g.get("optional", False),
+                            optional=g.get("optional", True),
                         ),
                     ),
                     groups,

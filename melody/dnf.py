@@ -96,7 +96,7 @@ def get_dnf_base_from(program: Node) -> dnf.Base:
 
 
 def get_packages_for_group(
-    group: str, base: dnf.Base, default=True, optional=False
+    group: str, base: dnf.Base, default=True, optional=True
 ) -> list:
     packages = list(base.comps.group_by_pattern(group).packages_iter())
     packages = filter(
