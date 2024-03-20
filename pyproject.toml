@@ -17,7 +17,7 @@ anytree = "^2.8.0"
 melody = 'melody:initialise'
 
 [tool.poetry.dev-dependencies]
-black = "^22.6.0"
+black = "^24.3.0"
 
 [build-system]
 requires = ["poetry-core"]
